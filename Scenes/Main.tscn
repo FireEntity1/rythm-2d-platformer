@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=79 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cbedfwitujp4" path="res://Sprites/Player.png" id="5_f3ewc"]
 [ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="6_f87xl"]
 [ext_resource type="AudioStream" uid="uid://cwe61fm2wo0j5" path="res://Audio/Darkside - Nightcore.mp3" id="7_hd2up"]
+[ext_resource type="Script" path="res://Scenes/Obstacles.gd" id="8_b84m2"]
+[ext_resource type="Texture2D" uid="uid://c2kyqvsnh5upm" path="res://Sprites/warning.png" id="9_en4v8"]
+[ext_resource type="Texture2D" uid="uid://bpevsejch3fxq" path="res://Sprites/laser.png" id="9_oqi4k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgqh1"]
 atlas = ExtResource("2_a37pa")
@@ -455,7 +458,49 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drtfg"]
 size = Vector2(212, 87.0001)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgv1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_en4v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oqi4k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skk1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_en4v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oqi4k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuac3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_en4v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oqi4k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="Root" type="Node2D"]
 scale = Vector2(0.508741, 0.508741)
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -463,35 +508,36 @@ position = Vector2(1236.39, 711.561)
 scale = Vector2(63.3665, -65.5558)
 texture = ExtResource("1_mivx2")
 
-[node name="BGLaser1" type="AnimatedSprite2D" parent="."]
-position = Vector2(1271.77, 960.215)
-scale = Vector2(41.8521, 73.5804)
+[node name="BGLaser1" type="AnimatedSprite2D" parent="BG"]
+position = Vector2(0.55834, -3.79301)
+scale = Vector2(0.660477, -1.12241)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
 autoplay = "default"
 frame = 10
 frame_progress = 0.38682
 
-[node name="BGLaser2" type="AnimatedSprite2D" parent="."]
-position = Vector2(1271.77, 960.215)
-scale = Vector2(-41.852, -73.58)
+[node name="BGLaser2" type="AnimatedSprite2D" parent="BG"]
+position = Vector2(0.55834, -3.79301)
+rotation = 3.14159
+scale = Vector2(0.660475, -1.1224)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
 autoplay = "default"
 frame = 10
 frame_progress = 0.38682
 
-[node name="BGLaser3" type="AnimatedSprite2D" parent="."]
-position = Vector2(1271.77, 867.547)
-rotation = 1.5708
-scale = Vector2(-40.3627, -73.58)
+[node name="BGLaser3" type="AnimatedSprite2D" parent="BG"]
+position = Vector2(0.55834, -2.37944)
+rotation = 1.57079
+scale = Vector2(0.6157, -1.16118)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
 autoplay = "default"
 frame = 10
 frame_progress = 0.38682
 
-[node name="BGLaser4" type="AnimatedSprite2D" parent="."]
-position = Vector2(1271.77, 867.547)
-rotation = 4.71239
-scale = Vector2(-40.3627, -73.58)
+[node name="BGLaser4" type="AnimatedSprite2D" parent="BG"]
+position = Vector2(0.55834, -2.37944)
+rotation = -1.5708
+scale = Vector2(0.6157, -1.16118)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
 autoplay = "default"
 frame = 10
@@ -546,3 +592,25 @@ position = Vector2(1236.39, 711.561)
 scale = Vector2(63.3665, -65.5558)
 stream = ExtResource("7_hd2up")
 autoplay = true
+
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource("8_b84m2")
+
+[node name="Laser" type="AnimatedSprite2D" parent="Obstacles"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1159.73, 693.87)
+scale = Vector2(23.1048, 53.4781)
+sprite_frames = SubResource("SpriteFrames_mgv1l")
+frame_progress = 0.728024
+
+[node name="LaserEdge" type="AnimatedSprite2D" parent="Obstacles"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(51.1064, 719.423)
+scale = Vector2(23.1048, 53.4781)
+sprite_frames = SubResource("SpriteFrames_skk1p")
+
+[node name="LaserEdge2" type="AnimatedSprite2D" parent="Obstacles"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2433.46, 729.251)
+scale = Vector2(23.1048, 53.4781)
+sprite_frames = SubResource("SpriteFrames_xuac3")

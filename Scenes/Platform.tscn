@@ -1,21 +1,21 @@
 [gd_scene load_steps=8 format=3 uid="uid://drw6nlss8ept"]
 
-[ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="1_2dgy8"]
+[ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="1_q7s83"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggb8l"]
-atlas = ExtResource("1_2dgy8")
+atlas = ExtResource("1_q7s83")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0od1t"]
-atlas = ExtResource("1_2dgy8")
+atlas = ExtResource("1_q7s83")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ie17n"]
-atlas = ExtResource("1_2dgy8")
+atlas = ExtResource("1_q7s83")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el3uj"]
-atlas = ExtResource("1_2dgy8")
+atlas = ExtResource("1_q7s83")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek46k"]
