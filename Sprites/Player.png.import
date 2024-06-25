@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f2seb0rdxcqp"
-path="res://.godot/imported/Screen wave.png-efc5b7ee323b72ccc857e884132dc919.ctex"
+uid="uid://cbedfwitujp4"
+path="res://.godot/imported/Player.png-0662117005c6b9039deb63a286c8efe4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Screen wave.png"
-dest_files=["res://.godot/imported/Screen wave.png-efc5b7ee323b72ccc857e884132dc919.ctex"]
+source_file="res://Sprites/Player.png"
+dest_files=["res://.godot/imported/Player.png-0662117005c6b9039deb63a286c8efe4.ctex"]
 
 [params]
 

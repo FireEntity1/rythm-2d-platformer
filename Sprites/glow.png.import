@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu2jiisuwepe"
-path="res://.godot/imported/Background.png-d346e9ce37c7294bb8a0c89de5d380cd.ctex"
+uid="uid://b4k5oat133hxi"
+path="res://.godot/imported/glow.png-57c1da0e6a034c6b3e66fc70903ef05f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background.png"
-dest_files=["res://.godot/imported/Background.png-d346e9ce37c7294bb8a0c89de5d380cd.ctex"]
+source_file="res://Sprites/glow.png"
+dest_files=["res://.godot/imported/glow.png-57c1da0e6a034c6b3e66fc70903ef05f.ctex"]
 
 [params]
 
