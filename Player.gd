@@ -11,7 +11,7 @@ func _process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -28,5 +28,10 @@ func _process(delta):
 		$PlayerCam.rotation_degrees = 10
 	else:
 		$PlayerCam.rotation_degrees = 0
+		
+	if Input.is_action_just_pressed("ui_down"):
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 10
+	if is_on_floor():
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 	move_and_slide()
