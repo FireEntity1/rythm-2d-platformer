@@ -3,32 +3,36 @@ extends Node2D
 var beat = 0
 
 func _ready():
-	$Laser.modulate.a = 0
+	pass
 
 
 
 func _process(delta):
 	beat += 0.010055
 	
-	laserFire(19)
-	laserFireEdge(20)
+	laserFire(18)
+	laserFire(20)
+	laserFire(22)
 	laserFire(24)
 	
-	print(beat)
+	# print(beat)
 	
 func laserFire(firebeat):
-	firebeat -= 2
-	if beat > firebeat and beat < firebeat + 1 and $Laser.modulate.a < 1:
+	if beat > firebeat + 2:
+		pass
+	firebeat -= 0.5
+	if beat > firebeat and beat < firebeat + 1:
 		$Laser.play("default")
-		$Laser.modulate.a += 0.04
-	if beat > firebeat + 1:
-		$Laser.modulate.a -= 0.04
 	
-func laserFireEdge(firebeat):
+	
+func laserFireLeft(firebeat):
+	if beat > firebeat + 2:
+		pass
 	firebeat -= 2
-	if beat > firebeat and beat < firebeat + 1 and $LaserEdge.modulate.a < 1:
-		$LaserEdge.play("default")
+	if beat > firebeat and beat < firebeat + 1 and $LaserEdge.modulate.a < 0.8:
+		$LaserEdge.modulate.a += 0.001
+	if beat > firebeat + 2 and beat < firebeat + 4 and $LaserEdge.modulate.a < 1:
 		$LaserEdge.modulate.a += 0.04
-	if beat > firebeat + 1:
+	if beat > firebeat + 4 and $LaserEdge.modulate.a > 0:
 		$LaserEdge.modulate.a -= 0.04
 

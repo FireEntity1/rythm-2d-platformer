@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=75 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -8,8 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="6_f87xl"]
 [ext_resource type="AudioStream" uid="uid://cwe61fm2wo0j5" path="res://Audio/Darkside - Nightcore.mp3" id="7_hd2up"]
 [ext_resource type="Script" path="res://Scenes/Obstacles.gd" id="8_b84m2"]
-[ext_resource type="Texture2D" uid="uid://c2kyqvsnh5upm" path="res://Sprites/warning.png" id="9_en4v8"]
-[ext_resource type="Texture2D" uid="uid://bpevsejch3fxq" path="res://Sprites/laser.png" id="9_oqi4k"]
+[ext_resource type="SpriteFrames" uid="uid://db5j28lmbhkr2" path="res://Scenes/Laser.tres" id="10_g37s4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgqh1"]
 atlas = ExtResource("2_a37pa")
@@ -458,48 +457,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drtfg"]
 size = Vector2(212, 87.0001)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mgv1l"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_en4v8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_oqi4k")
-}],
-"loop": true,
-"name": &"default",
-"speed": 0.5
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_skk1p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_en4v8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_oqi4k")
-}],
-"loop": false,
-"name": &"default",
-"speed": 0.5
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xuac3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_en4v8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_oqi4k")
-}],
-"loop": true,
-"name": &"default",
-"speed": 0.5
-}]
-
 [node name="Root" type="Node2D"]
 scale = Vector2(0.508741, 0.508741)
 
@@ -597,20 +554,18 @@ autoplay = true
 script = ExtResource("8_b84m2")
 
 [node name="Laser" type="AnimatedSprite2D" parent="Obstacles"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(1159.73, 693.87)
-scale = Vector2(23.1048, 53.4781)
-sprite_frames = SubResource("SpriteFrames_mgv1l")
-frame_progress = 0.728024
+position = Vector2(1028.03, -1020.17)
+scale = Vector2(18.3093, 29.7533)
+sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserEdge" type="AnimatedSprite2D" parent="Obstacles"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(51.1064, 719.423)
 scale = Vector2(23.1048, 53.4781)
-sprite_frames = SubResource("SpriteFrames_skk1p")
+sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserEdge2" type="AnimatedSprite2D" parent="Obstacles"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(2433.46, 729.251)
 scale = Vector2(23.1048, 53.4781)
-sprite_frames = SubResource("SpriteFrames_xuac3")
+sprite_frames = ExtResource("10_g37s4")
