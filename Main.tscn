@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://cos3e41wxorb1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_l7rcq"]
+[ext_resource type="Texture2D" uid="uid://cbedfwitujp4" path="res://Player.png" id="2_dy42p"]
+[ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Platform.png" id="3_8ncxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1bd4"]
+size = Vector2(126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggb8l"]
+atlas = ExtResource("3_8ncxk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0od1t"]
+atlas = ExtResource("3_8ncxk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie17n"]
+atlas = ExtResource("3_8ncxk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el3uj"]
+atlas = ExtResource("3_8ncxk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3j444"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggb8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0od1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie17n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el3uj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drtfg"]
+size = Vector2(212, 87.0001)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.508741, 0.508741)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(547, 513)
+scale = Vector2(0.623119, 0.623119)
+script = ExtResource("1_l7rcq")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+position = Vector2(-8.21732, -8.33808)
+scale = Vector2(4.11644, 4.11644)
+texture = ExtResource("2_dy42p")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
+position = Vector2(-8.21732, -6.83808)
+shape = SubResource("RectangleShape2D_k1bd4")
+
+[node name="PlayerCam" type="Camera2D" parent="Player"]
+position = Vector2(-8.21732, -112.338)
+scale = Vector2(6.25846, 2.59118)
+ignore_rotation = false
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="PlatformSprite" type="AnimatedSprite2D" parent="Platform"]
+position = Vector2(537, 730)
+scale = Vector2(3.86902, 3.86902)
+sprite_frames = SubResource("SpriteFrames_3j444")
+autoplay = "default"
+frame = 1
+frame_progress = 0.719253
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
+position = Vector2(539, 717)
+shape = SubResource("RectangleShape2D_drtfg")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(755, -129)
+
+[node name="PlatformSprite" type="AnimatedSprite2D" parent="Platform2"]
+position = Vector2(537, 730)
+scale = Vector2(3.86902, 3.86902)
+sprite_frames = SubResource("SpriteFrames_3j444")
+autoplay = "default"
+frame = 1
+frame_progress = 0.719253
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(539, 717)
+shape = SubResource("RectangleShape2D_drtfg")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(1525.34, -255.533)
+
+[node name="PlatformSprite" type="AnimatedSprite2D" parent="Platform3"]
+position = Vector2(537, 730)
+scale = Vector2(3.86902, 3.86902)
+sprite_frames = SubResource("SpriteFrames_3j444")
+autoplay = "default"
+frame = 1
+frame_progress = 0.719253
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(539, 717)
+shape = SubResource("RectangleShape2D_drtfg")
