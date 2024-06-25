@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=76 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="6_f87xl"]
 [ext_resource type="AudioStream" uid="uid://cwe61fm2wo0j5" path="res://Audio/Darkside - Nightcore.mp3" id="7_hd2up"]
 [ext_resource type="Script" path="res://Scenes/Obstacles.gd" id="8_b84m2"]
+[ext_resource type="AudioStream" uid="uid://d2gsh32ufv27d" path="res://Audio/Laser.mp3" id="10_4poid"]
 [ext_resource type="SpriteFrames" uid="uid://db5j28lmbhkr2" path="res://Scenes/Laser.tres" id="10_g37s4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgqh1"]
@@ -466,6 +467,7 @@ scale = Vector2(63.3665, -65.5558)
 texture = ExtResource("1_mivx2")
 
 [node name="BGLaser1" type="AnimatedSprite2D" parent="BG"]
+modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(0.55834, -3.79301)
 scale = Vector2(0.660477, -1.12241)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
@@ -474,6 +476,7 @@ frame = 10
 frame_progress = 0.38682
 
 [node name="BGLaser2" type="AnimatedSprite2D" parent="BG"]
+modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(0.55834, -3.79301)
 rotation = 3.14159
 scale = Vector2(0.660475, -1.1224)
@@ -483,6 +486,7 @@ frame = 10
 frame_progress = 0.38682
 
 [node name="BGLaser3" type="AnimatedSprite2D" parent="BG"]
+modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(0.55834, -2.37944)
 rotation = 1.57079
 scale = Vector2(0.6157, -1.16118)
@@ -492,6 +496,7 @@ frame = 10
 frame_progress = 0.38682
 
 [node name="BGLaser4" type="AnimatedSprite2D" parent="BG"]
+modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(0.55834, -2.37944)
 rotation = -1.5708
 scale = Vector2(0.6157, -1.16118)
@@ -505,10 +510,10 @@ position = Vector2(536.619, 442.269)
 scale = Vector2(3.93968, 2.13656)
 tile_set = SubResource("TileSet_ajxld")
 format = 2
-layer_0/tile_data = PackedInt32Array(393216, 0, 65536, 393226, 0, 65536, 393236, 0, 65536, 983045, 0, 65536, 983055, 0, 65536, 1441812, 0, 65536, 1441802, 0, 65536, 1441792, 0, 65536, 1835013, 0, 65536, 1900559, 0, 65536)
+layer_0/tile_data = PackedInt32Array(1376266, 0, 65536, 1441792, 0, 65536, 1441812, 0, 65536, 1769463, 0, 65536, 1769502, 0, 65536, 786427, 0, 65536, 786437, 0, 65536, 786448, 0, 65536, 655386, 0, 65536)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(547, 513)
+position = Vector2(1226.56, 1531.23)
 scale = Vector2(1.01454, 1.01454)
 script = ExtResource("4_80kjv")
 
@@ -523,9 +528,10 @@ scale = Vector2(0.561996, 0.561996)
 shape = SubResource("RectangleShape2D_k1bd4")
 
 [node name="PlayerCam" type="Camera2D" parent="Player"]
-position = Vector2(-16.6592, -113.512)
+position = Vector2(-32.937, -114.31)
 scale = Vector2(6.25846, 2.59118)
 ignore_rotation = false
+zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -554,18 +560,37 @@ autoplay = true
 script = ExtResource("8_b84m2")
 
 [node name="Laser" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(1028.03, -1020.17)
+position = Vector2(1228.52, -743.011)
 scale = Vector2(18.3093, 29.7533)
 sprite_frames = ExtResource("10_g37s4")
 
-[node name="LaserEdge" type="AnimatedSprite2D" parent="Obstacles"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(51.1064, 719.423)
+[node name="LaserB" type="AnimatedSprite2D" parent="Obstacles"]
+position = Vector2(894.365, 1487.99)
+rotation = 1.5708
+scale = Vector2(7.30173, 35.4143)
+sprite_frames = ExtResource("10_g37s4")
+
+[node name="LaserM" type="AnimatedSprite2D" parent="Obstacles"]
+position = Vector2(910.09, 976.921)
+rotation = 1.5708
+scale = Vector2(7.30173, 35.4143)
+sprite_frames = ExtResource("10_g37s4")
+
+[node name="LaserH" type="AnimatedSprite2D" parent="Obstacles"]
+position = Vector2(919.918, 542.516)
+rotation = 1.5708
+scale = Vector2(7.30173, 35.4143)
+sprite_frames = ExtResource("10_g37s4")
+
+[node name="LaserL" type="AnimatedSprite2D" parent="Obstacles"]
+position = Vector2(190.667, -2633.95)
 scale = Vector2(23.1048, 53.4781)
 sprite_frames = ExtResource("10_g37s4")
 
-[node name="LaserEdge2" type="AnimatedSprite2D" parent="Obstacles"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(2433.46, 729.251)
+[node name="LaserR" type="AnimatedSprite2D" parent="Obstacles"]
+position = Vector2(2291.93, -2643.78)
 scale = Vector2(23.1048, 53.4781)
 sprite_frames = ExtResource("10_g37s4")
+
+[node name="LaserSFX" type="AudioStreamPlayer2D" parent="Obstacles"]
+stream = ExtResource("10_4poid")
