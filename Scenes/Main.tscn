@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=77 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -397,9 +397,6 @@ scenes/1/scene = ExtResource("3_7seoc")
 [sub_resource type="TileSet" id="TileSet_ajxld"]
 sources/0 = SubResource("TileSetScenesCollectionSource_vlop4")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1bd4"]
-size = Vector2(126, 127)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggb8l"]
 atlas = ExtResource("6_f87xl")
 region = Rect2(64, 0, 64, 64)
@@ -458,6 +455,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drtfg"]
 size = Vector2(212, 87.0001)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1bd4"]
+size = Vector2(126, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdedj"]
+size = Vector2(20, 125.721)
+
 [node name="Root" type="Node2D"]
 scale = Vector2(0.508741, 0.508741)
 
@@ -512,8 +515,29 @@ tile_set = SubResource("TileSet_ajxld")
 format = 2
 layer_0/tile_data = PackedInt32Array(1376266, 0, 65536, 1441792, 0, 65536, 1441812, 0, 65536, 1769463, 0, 65536, 1769502, 0, 65536, 786427, 0, 65536, 786437, 0, 65536, 786448, 0, 65536, 655386, 0, 65536)
 
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(-6494.47, -4119.98)
+scale = Vector2(14.3889, 8.56419)
+
+[node name="PlatformSprite" type="AnimatedSprite2D" parent="Platform"]
+position = Vector2(537, 730)
+scale = Vector2(3.86902, 3.86902)
+sprite_frames = SubResource("SpriteFrames_3j444")
+animation = &"no move"
+autoplay = "no move"
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
+position = Vector2(539, 717)
+shape = SubResource("RectangleShape2D_drtfg")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1236.39, 711.561)
+scale = Vector2(63.3665, -65.5558)
+stream = ExtResource("7_hd2up")
+autoplay = true
+
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(1226.56, 1531.23)
+position = Vector2(2462.94, 1159.73)
 scale = Vector2(1.01454, 1.01454)
 script = ExtResource("4_80kjv")
 
@@ -535,27 +559,6 @@ zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(-6494.47, -4119.98)
-scale = Vector2(14.3889, 8.56419)
-
-[node name="PlatformSprite" type="AnimatedSprite2D" parent="Platform"]
-position = Vector2(537, 730)
-scale = Vector2(3.86902, 3.86902)
-sprite_frames = SubResource("SpriteFrames_3j444")
-animation = &"no move"
-autoplay = "no move"
-
-[node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
-position = Vector2(539, 717)
-shape = SubResource("RectangleShape2D_drtfg")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(1236.39, 711.561)
-scale = Vector2(63.3665, -65.5558)
-stream = ExtResource("7_hd2up")
-autoplay = true
-
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("8_b84m2")
 
@@ -564,11 +567,29 @@ position = Vector2(1228.52, -743.011)
 scale = Vector2(18.3093, 29.7533)
 sprite_frames = ExtResource("10_g37s4")
 
+[node name="Laser" type="Area2D" parent="Obstacles/Laser"]
+scale = Vector2(1, 1)
+collision_layer = 2
+
+[node name="LaserCol" type="CollisionShape2D" parent="Obstacles/Laser/Laser"]
+position = Vector2(-0.8587, 20.1497)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xdedj")
+
 [node name="LaserB" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(894.365, 1487.99)
 rotation = 1.5708
 scale = Vector2(7.30173, 35.4143)
 sprite_frames = ExtResource("10_g37s4")
+
+[node name="LaserB" type="Area2D" parent="Obstacles/LaserB"]
+scale = Vector2(1, 1)
+collision_layer = 4
+
+[node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserB/LaserB"]
+position = Vector2(-4.57713, -16.7067)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserM" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(910.09, 976.921)
@@ -576,21 +597,69 @@ rotation = 1.5708
 scale = Vector2(7.30173, 35.4143)
 sprite_frames = ExtResource("10_g37s4")
 
+[node name="LaserM" type="Area2D" parent="Obstacles/LaserM"]
+scale = Vector2(1, 1)
+
+[node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserM/LaserM"]
+position = Vector2(-0.000193596, -14.4866)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xdedj")
+
 [node name="LaserH" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(919.918, 542.516)
 rotation = 1.5708
 scale = Vector2(7.30173, 35.4143)
 sprite_frames = ExtResource("10_g37s4")
 
+[node name="LaserH" type="Area2D" parent="Obstacles/LaserH"]
+position = Vector2(0.538399, 0)
+scale = Vector2(1, 1)
+
+[node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserH/LaserH"]
+position = Vector2(-1.8847, -14.9861)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xdedj")
+
 [node name="LaserL" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(190.667, -2633.95)
 scale = Vector2(23.1048, 53.4781)
 sprite_frames = ExtResource("10_g37s4")
+
+[node name="LaserL" type="Area2D" parent="Obstacles/LaserL"]
+scale = Vector2(1, 1)
+
+[node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserL/LaserL"]
+position = Vector2(-0.8587, 20.1497)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserR" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(2291.93, -2643.78)
 scale = Vector2(23.1048, 53.4781)
 sprite_frames = ExtResource("10_g37s4")
 
+[node name="LaserR" type="Area2D" parent="Obstacles/LaserR"]
+scale = Vector2(1, 1)
+
+[node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserR/LaserR"]
+position = Vector2(-0.8587, 20.1497)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xdedj")
+
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="Obstacles"]
 stream = ExtResource("10_4poid")
+
+[connection signal="enterLaser" from="Player" to="Obstacles" method="_on_player_enter_laser"]
+[connection signal="exitLaser" from="Player" to="Obstacles" method="_on_player_exit_laser"]
+[connection signal="body_entered" from="Obstacles/Laser/Laser" to="Player" method="_on_laser_body_entered"]
+[connection signal="body_exited" from="Obstacles/Laser/Laser" to="Player" method="_on_laser_body_exited"]
+[connection signal="body_entered" from="Obstacles/LaserB/LaserB" to="Player" method="_on_laser_body_entered"]
+[connection signal="body_exited" from="Obstacles/LaserB/LaserB" to="Player" method="_on_laser_body_exited"]
+[connection signal="body_entered" from="Obstacles/LaserM/LaserM" to="Player" method="_on_laser_body_entered"]
+[connection signal="body_exited" from="Obstacles/LaserM/LaserM" to="Player" method="_on_laser_body_exited"]
+[connection signal="body_entered" from="Obstacles/LaserH/LaserH" to="Player" method="_on_laser_body_entered"]
+[connection signal="body_exited" from="Obstacles/LaserH/LaserH" to="Player" method="_on_laser_body_exited"]
+[connection signal="body_entered" from="Obstacles/LaserL/LaserL" to="Player" method="_on_laser_body_entered"]
+[connection signal="body_exited" from="Obstacles/LaserL/LaserL" to="Player" method="_on_laser_body_exited"]
+[connection signal="body_entered" from="Obstacles/LaserR/LaserR" to="Player" method="_on_laser_body_entered"]
+[connection signal="body_exited" from="Obstacles/LaserR/LaserR" to="Player" method="_on_laser_body_exited"]
