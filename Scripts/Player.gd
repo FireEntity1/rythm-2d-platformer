@@ -1,8 +1,18 @@
 extends CharacterBody2D
 
+@export var health = 10
+var iframes = 100
+var wasDamaged = false
+
 const SPEED = 600
 const JUMP_VELOCITY = -900
 var isLaser = false
+var isLaserB = false
+var isLaserM = false
+var isLaserH = false
+var isLaserR = false
+var isLaserL = false
+
 signal enterLaser(body)
 signal exitLaser(body)
 
@@ -12,6 +22,11 @@ func _process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	if wasDamaged == true:
+		iframes -= 1
+		if iframes < 1:
+			wasDamaged = false
+			iframes = 100
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -33,19 +48,83 @@ func _process(delta):
 	if is_on_floor():
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-	
+	print(health)
 
 	move_and_slide()
+
+func _on_obstacles_laser():
+	if isLaser == true and wasDamaged == false:
+		wasDamaged = true
+		health -= 1
+
+
+func _on_obstacles_laser_b():
+	if isLaserB == true and wasDamaged == false:
+		wasDamaged = true
+		health -= 1
+
+
+func _on_obstacles_laser_h():
+	if isLaserH == true and wasDamaged == false:
+		wasDamaged = true
+
+
+func _on_obstacles_laser_l():
+	if isLaserL == true and wasDamaged == false:
+		wasDamaged = true
+		health -= 1
+
+
+func _on_obstacles_laser_m():
+	if isLaserM == true and wasDamaged == false:
+		wasDamaged = true
+		health -= 1
+
+
+func _on_obstacles_laser_r():
+	if isLaserR == true and wasDamaged == false:
+		wasDamaged = true
+		health -= 1
 
 
 func _on_laser_body_entered(body):
 	if body == self:
 		isLaser = true
-		enterLaser.emit(body)
-		print(body)
-
-
 func _on_laser_body_exited(body):
 	if body == self:
-		exitLaser.emit(body)
 		isLaser = false
+
+func _on_laser_b_body_entered(body):
+	if body == self:
+		isLaserB = true
+func _on_laser_b_body_exited(body):
+	if body == self:
+		isLaserB = false
+
+func _on_laser_m_body_entered(body):
+	if body == self:
+		isLaserM = true
+func _on_laser_m_body_exited(body):
+	if body == self:
+		isLaserM = false
+
+func _on_laser_h_body_entered(body):
+	if body == self:
+		isLaserH = true
+func _on_laser_h_body_exited(body):
+	if body == self:
+		isLaserH = false
+
+func _on_laser_l_body_entered(body):
+	if body == self:
+		isLaserL = true
+func _on_laser_l_body_exited(body):
+	if body == self:
+		isLaserL = false
+
+func _on_laser_r_body_entered(body):
+	if body == self:
+		isLaserR = true
+func _on_laser_r_body_exited(body):
+	if body == self:
+		isLaserR = false
