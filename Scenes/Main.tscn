@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=79 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -413,13 +413,13 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("6_f87xl")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sexcp"]
-atlas = ExtResource("6_f87xl")
-region = Rect2(0, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4e2t4"]
 atlas = ExtResource("6_f87xl")
 region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sexcp"]
+atlas = ExtResource("6_f87xl")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3j444"]
 animations = [{
@@ -442,10 +442,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sexcp")
+"texture": SubResource("AtlasTexture_4e2t4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4e2t4")
+"texture": SubResource("AtlasTexture_sexcp")
 }],
 "loop": true,
 "name": &"no move",
@@ -459,7 +459,13 @@ size = Vector2(212, 87.0001)
 size = Vector2(126, 127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdedj"]
-size = Vector2(20, 125.721)
+size = Vector2(19.6464, 125.721)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f16qf"]
+size = Vector2(20, 72.4827)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytgsf"]
+size = Vector2(16.5896, 71.8527)
 
 [node name="Root" type="Node2D"]
 scale = Vector2(0.508741, 0.508741)
@@ -564,87 +570,77 @@ script = ExtResource("8_b84m2")
 
 [node name="Laser" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(1228.52, -743.011)
-scale = Vector2(18.3093, 29.7533)
+scale = Vector2(14.6925, 29.7533)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="Laser" type="Area2D" parent="Obstacles/Laser"]
-scale = Vector2(1, 1)
 collision_layer = 2
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/Laser/Laser"]
-position = Vector2(-0.8587, 20.1497)
+position = Vector2(0.590622, 20.1497)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserB" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(894.365, 1487.99)
+position = Vector2(902.227, 1525.33)
 rotation = 1.5708
 scale = Vector2(7.30173, 35.4143)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserB" type="Area2D" parent="Obstacles/LaserB"]
-scale = Vector2(1, 1)
+position = Vector2(9.96042, -0.277528)
 collision_layer = 4
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserB/LaserB"]
 position = Vector2(-4.57713, -16.7067)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserM" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(910.09, 976.921)
+position = Vector2(931.712, 1214.76)
 rotation = 1.5708
 scale = Vector2(7.30173, 35.4143)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserM" type="Area2D" parent="Obstacles/LaserM"]
-scale = Vector2(1, 1)
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserM/LaserM"]
-position = Vector2(-0.000193596, -14.4866)
-scale = Vector2(1, 1)
+position = Vector2(-14.8064, -14.9861)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserH" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(919.918, 542.516)
+position = Vector2(919.918, 721.389)
 rotation = 1.5708
 scale = Vector2(7.30173, 35.4143)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserH" type="Area2D" parent="Obstacles/LaserH"]
 position = Vector2(0.538399, 0)
-scale = Vector2(1, 1)
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserH/LaserH"]
-position = Vector2(-1.8847, -14.9861)
-scale = Vector2(1, 1)
+position = Vector2(0.538094, -15.2081)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserL" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(190.667, -2633.95)
-scale = Vector2(23.1048, 53.4781)
+scale = Vector2(18.4659, 53.4781)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserL" type="Area2D" parent="Obstacles/LaserL"]
-scale = Vector2(1, 1)
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserL/LaserL"]
-position = Vector2(-0.8587, 20.1497)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_xdedj")
+position = Vector2(0.510438, 46.9372)
+shape = SubResource("RectangleShape2D_f16qf")
 
 [node name="LaserR" type="AnimatedSprite2D" parent="Obstacles"]
 position = Vector2(2291.93, -2643.78)
-scale = Vector2(23.1048, 53.4781)
+scale = Vector2(19.0163, 53.4781)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserR" type="Area2D" parent="Obstacles/LaserR"]
-scale = Vector2(1, 1)
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/LaserR/LaserR"]
-position = Vector2(-0.8587, 20.1497)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_xdedj")
+position = Vector2(0.680706, 46.1287)
+shape = SubResource("RectangleShape2D_ytgsf")
 
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="Obstacles"]
 stream = ExtResource("10_4poid")

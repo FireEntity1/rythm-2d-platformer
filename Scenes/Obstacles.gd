@@ -18,15 +18,50 @@ func _ready():
 func _process(delta):
 	beat += 0.010055
 	
-	laserFireH(18.5)
-	laserFireB(18.5)
-	laserFireR(19.5)
-	laserFireL(19.5)
+	laserFireH(18)
+	laserFireB(19)
+	laserFireL(20)
+	
 	laserFireL(22)
-	laserFire(22.75)
-	laserFireR(23.25)
-	laserFireM(23.75)
-	laserFire(24.5)
+	laserFire(23)
+	laserFireR(24)
+	laserFireH(25)
+	
+	laserFire(26)
+	laserFireL(27)
+	laserFireB(28)
+	laserFire(29)
+	laserFireH(29)
+	
+	laserFire(34)
+	laserFireR(35)
+	laserFireB(36)
+	
+	laserFireL(38)
+	laserFireR(39)
+	laserFireB(40)
+	laserFireH(41)
+	
+	laserFire(42)
+	laserFireR(43)
+	laserFireL(43)
+	laserFireH(44)
+	laserFire(44)
+	laserFireM(45)
+	
+	laserFireL(50)
+	laserFireR(51)
+	laserFire(52)
+	laserFireH(53)
+	laserFireB(54)
+	laserFireL(55)
+	laserFireR(56)
+	laserFire(57)
+	laserFireM(58)
+	laserFireL(59)
+	laserFireR(60)
+	
+	
 	
 	
 	
@@ -80,4 +115,3 @@ func laserFireH(firebeat):
 		$LaserH.play("default")
 	if beat > firebeat + 1 and beat < firebeat + 2:
 		laserH.emit()
-
