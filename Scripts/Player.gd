@@ -47,6 +47,11 @@ func _process(delta):
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 10
 	if is_on_floor():
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	
+	if self.position.y > 3000:
+		self.position.y = 721
+		self.position.x = 0
+		
 
 	print(health)
 

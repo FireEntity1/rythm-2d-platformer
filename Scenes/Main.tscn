@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbedfwitujp4" path="res://Sprites/Player.png" id="5_f3ewc"]
 [ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="6_f87xl"]
 [ext_resource type="AudioStream" uid="uid://cwe61fm2wo0j5" path="res://Audio/Darkside - Nightcore.mp3" id="7_hd2up"]
-[ext_resource type="Script" path="res://Scenes/Obstacles.gd" id="8_b84m2"]
+[ext_resource type="Script" path="res://Scripts/Obstacles.gd" id="8_b84m2"]
 [ext_resource type="AudioStream" uid="uid://d2gsh32ufv27d" path="res://Audio/Laser.mp3" id="10_4poid"]
 [ext_resource type="SpriteFrames" uid="uid://db5j28lmbhkr2" path="res://Scenes/Laser.tres" id="10_g37s4"]
 
@@ -578,7 +578,6 @@ collision_layer = 2
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/Laser/Laser"]
 position = Vector2(0.590622, 20.1497)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserB" type="AnimatedSprite2D" parent="Obstacles"]

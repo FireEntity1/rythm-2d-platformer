@@ -15,8 +15,8 @@ func _ready():
 
 
 
-func _process(delta):
-	beat += 0.010055
+func _physics_process(delta):
+	beat += 0.02762666667
 	
 	laserFireH(18)
 	laserFireB(19)
@@ -60,8 +60,29 @@ func _process(delta):
 	laserFireM(58)
 	laserFireL(59)
 	laserFireR(60)
-	
-	
+	laserFire(61)
+	laserFireM(62)
+	laserFireH(63)
+	laserFireR(64)
+	laserFire(65)
+	laserFireL(66)
+	laserFireM(67)
+	laserFireH(68)
+	laserFire(69)
+	laserFireB(70)
+	laserFireL(71)
+	laserFire(72)
+	laserFireR(73)
+	laserFireB(74)
+	laserFireM(75)
+	laserFireH(76)
+	laserFireL(77)
+	laserFire(78)
+	laserFireM(79)
+	laserFireR(82)
+	laserFireL(82)
+	laserFireH(82)
+	laserFireB(82)
 	
 	
 	

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bppmvgj0gpieu"]
+
+[ext_resource type="Texture2D" uid="uid://cg1yo87gdb2ek" path="res://Sprites/Startbutton2.png" id="1_bk6sy"]
+[ext_resource type="Script" path="res://Scenes/startButton.gd" id="1_en2ac"]
+[ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_upudu"]
+[ext_resource type="Texture2D" uid="uid://b8kolcgy6wp5t" path="res://Sprites/Startbutton3.png" id="2_2fu2p"]
+[ext_resource type="Texture2D" uid="uid://de0bsm33txtxg" path="res://Sprites/Startbutton1.png" id="3_e0iyi"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(959, 561)
+scale = Vector2(13.5125, 13.5556)
+texture = ExtResource("1_upudu")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 524.0
+offset_top = 340.0
+offset_right = 1336.0
+offset_bottom = 829.0
+texture_normal = ExtResource("1_bk6sy")
+texture_pressed = ExtResource("2_2fu2p")
+texture_hover = ExtResource("3_e0iyi")
+stretch_mode = 4
+script = ExtResource("1_en2ac")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 656.0
+offset_top = 78.0
+offset_right = 716.0
+offset_bottom = 108.0
+scale = Vector2(11.3892, 11.4953)
+text = "START"
+fit_content = true
+
+[connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_button_up"]
