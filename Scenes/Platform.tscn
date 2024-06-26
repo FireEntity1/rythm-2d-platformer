@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c8bh"]
-size = Vector2(182.814, 88.2285)
+size = Vector2(182.814, 89.9566)
 
 [node name="Node2D" type="Node2D"]
 
@@ -54,6 +54,6 @@ sprite_frames = SubResource("SpriteFrames_ek46k")
 autoplay = "default"
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
-position = Vector2(522.786, 718.811)
+position = Vector2(524.31, 717.956)
 scale = Vector2(0.95044, 0.950441)
 shape = SubResource("RectangleShape2D_6c8bh")
