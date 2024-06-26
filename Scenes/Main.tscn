@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=91 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="6_f87xl"]
 [ext_resource type="AudioStream" uid="uid://cwe61fm2wo0j5" path="res://Audio/Darkside - Nightcore.mp3" id="7_hd2up"]
 [ext_resource type="Script" path="res://Scripts/Obstacles.gd" id="8_b84m2"]
+[ext_resource type="Texture2D" uid="uid://cts411q2j0alw" path="res://Sprites/hitAnim.png" id="8_hhmhm"]
 [ext_resource type="AudioStream" uid="uid://d2gsh32ufv27d" path="res://Audio/Laser.mp3" id="10_4poid"]
 [ext_resource type="SpriteFrames" uid="uid://db5j28lmbhkr2" path="res://Scenes/Laser.tres" id="10_g37s4"]
 
@@ -458,6 +459,84 @@ size = Vector2(212, 87.0001)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1bd4"]
 size = Vector2(126, 127)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnnib"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnaf2"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaaib"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxlpk"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpj4x"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r0qa"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0fip"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoo0r"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdjde"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1trk"]
+atlas = ExtResource("8_hhmhm")
+region = Rect2(576, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r73as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnnib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnaf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaaib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxlpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpj4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r0qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0fip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoo0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdjde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1trk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 40.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdedj"]
 size = Vector2(19.6464, 125.721)
 
@@ -537,7 +616,7 @@ position = Vector2(539, 717)
 shape = SubResource("RectangleShape2D_drtfg")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(1236.39, 711.561)
+position = Vector2(1338.6, 1096.83)
 scale = Vector2(63.3665, -65.5558)
 stream = ExtResource("7_hd2up")
 autoplay = true
@@ -564,6 +643,15 @@ ignore_rotation = false
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="HitAnim" type="AnimatedSprite2D" parent="Player/PlayerCam"]
+position = Vector2(0.310028, -3.74039)
+scale = Vector2(15.9673, 49.6296)
+sprite_frames = SubResource("SpriteFrames_r73as")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("10_4poid")
+volume_db = -2.0
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("8_b84m2")

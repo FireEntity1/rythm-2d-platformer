@@ -84,6 +84,13 @@ func _physics_process(delta):
 	laserFireH(82)
 	laserFireB(82)
 	
+	laserFire(83)
+	laserFireL(84)
+	laserFireR(84)
+	laserFireM(85)
+	laserFireH(86)
+	laserFireL(87)
+	laserFireM(88)
 	
 	
 func laserFire(firebeat):
