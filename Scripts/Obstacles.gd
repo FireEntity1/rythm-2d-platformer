@@ -3,6 +3,8 @@ extends Node2D
 var beat = 0
 var inLaser = false
 
+const hitOffset = 1.9
+
 signal laser
 signal laserB
 signal laserM
@@ -18,6 +20,7 @@ func _ready():
 func _physics_process(delta):
 	beat += 0.02762666667
 	
+	#Predrop
 	laserFireH(18)
 	laserFireB(19)
 	laserFireL(20)
@@ -31,7 +34,7 @@ func _physics_process(delta):
 	laserFireL(27)
 	laserFireB(28)
 	laserFire(29)
-	laserFireH(29)
+	laserFireH(29.5)
 	
 	laserFire(34)
 	laserFireR(35)
@@ -48,7 +51,7 @@ func _physics_process(delta):
 	laserFireH(44)
 	laserFire(44)
 	laserFireM(45)
-	
+	#Buildup
 	laserFireL(50)
 	laserFireR(51)
 	laserFire(52)
@@ -83,23 +86,89 @@ func _physics_process(delta):
 	laserFireL(82)
 	laserFireH(82)
 	laserFireB(82)
-	
+	#DROP 1
 	laserFire(83)
 	laserFireL(84)
-	laserFireR(84)
-	laserFireM(85)
-	laserFireH(86)
-	laserFireL(87)
-	laserFireM(88)
+	laserFireR(85)
+	laserFireM(86)
+	laserFireB(87)
+	laserFireH(88)
+	laserFireL(89)
+	laserFire(90)
+	laserFireM(91)
+	laserFireR(92)
+	laserFire(93)
+	laserFireL(94)
+	laserFireB(95)
+	laserFireM(96)
+	laserFireH(97)
+	laserFireL(98)
+	laserFire(99)
+	laserFireR(100)
+	laserFireH(101)
+	laserFireM(102)
+	laserFireB(103)
+	laserFire(104)
+	laserFireL(105)
+	laserFireR(106)
+	laserFireM(107)
+	laserFireB(108)
+	laserFireH(109)
+	laserFireL(110)
+	laserFire(111)
+	laserFireM(112)
+	laserFireR(113)
+	laserFire(114)
+	#Postdrop
+	laserFireH(114)
+	laserFireB(115)
+	laserFireL(116)
+	
+	laserFireL(118)
+	laserFire(119)
+	laserFireR(120)
+	laserFireH(121)
+	
+	laserFire(122)
+	laserFireL(123)
+	laserFireB(124)
+	laserFire(125)
+	laserFireH(125.5)
+	
+	laserFire(130)
+	laserFireR(131)
+	laserFireB(132)
+	
+	laserFireL(134)
+	laserFireR(135)
+	laserFireB(136)
+	laserFireH(137)
+	
+	laserFire(138)
+	laserFireR(139)
+	laserFireL(140)
+	laserFireH(141)
+	laserFire(142)
+	laserFireM(142.5)
+	# Intensity up
+	laserFire(146)
+	laserFireL(148)
+	laserFireR(148)
+	laserFireB(150)
+	laserFireH(150)
+	laserFire(152)
+	laserFireM(152)
+	laserFireR(154)
+	laserFireH(154)
 	
 	
 func laserFire(firebeat):
 	if beat > firebeat + 2:
 		pass
-	firebeat -= 1.2
+	firebeat -= 1
 	if beat > firebeat and beat < firebeat + 1:
 		$Laser.play("default")
-	if beat > firebeat + 1 and beat < firebeat + 2:
+	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laser.emit()
 func laserFireL(firebeat):
 	if beat > firebeat + 2:
@@ -109,7 +178,7 @@ func laserFireL(firebeat):
 		$LaserL.play("default")
 	if beat < firebeat+1 and beat < firebeat+2:
 		pass
-	if beat > firebeat + 1 and beat < firebeat + 2:
+	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laserL.emit()
 func laserFireR(firebeat):
 	if beat > firebeat + 2:
@@ -117,7 +186,7 @@ func laserFireR(firebeat):
 	firebeat -= 1
 	if beat > firebeat and beat < firebeat + 1:
 		$LaserR.play("default")
-	if beat > firebeat + 1 and beat < firebeat + 2:
+	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laserR.emit()
 func laserFireB(firebeat):
 	if beat > firebeat + 2:
@@ -125,7 +194,7 @@ func laserFireB(firebeat):
 	firebeat -= 1
 	if beat > firebeat and beat < firebeat + 1:
 		$LaserB.play("default")
-	if beat > firebeat + 1 and beat < firebeat + 2:
+	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laserB.emit()
 func laserFireM(firebeat):
 	if beat > firebeat + 2:
@@ -133,7 +202,7 @@ func laserFireM(firebeat):
 	firebeat -= 1
 	if beat > firebeat and beat < firebeat + 1:
 		$LaserM.play("default")
-	if beat > firebeat + 1 and beat < firebeat + 2:
+	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laserM.emit()
 func laserFireH(firebeat):
 	if beat > firebeat + 2:
@@ -141,5 +210,5 @@ func laserFireH(firebeat):
 	firebeat -= 1
 	if beat > firebeat and beat < firebeat + 1:
 		$LaserH.play("default")
-	if beat > firebeat + 1 and beat < firebeat + 2:
+	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laserH.emit()
