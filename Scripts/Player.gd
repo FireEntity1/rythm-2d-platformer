@@ -57,7 +57,10 @@ func _process(delta):
 		self.position.y = 721
 		self.position.x = 0
 		
-	$HealthLabel.text = str(health)
+	if health == 0:
+		get_tree().change_scene_to_file("res://Scenes/gameOver.tscn")
+	
+	$CanvasLayer/HealthBar.text = str(health)
 	print(health)
 
 	move_and_slide()

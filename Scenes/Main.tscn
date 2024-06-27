@@ -588,7 +588,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdedj"]
-size = Vector2(19.6464, 125.721)
+size = Vector2(24.3273, 125.721)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f16qf"]
 size = Vector2(20, 72.4827)
@@ -677,6 +677,18 @@ position = Vector2(2462.94, 1159.73)
 scale = Vector2(1.01454, 1.01454)
 script = ExtResource("4_80kjv")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+follow_viewport_enabled = true
+
+[node name="HealthBar" type="Label" parent="Player/CanvasLayer"]
+top_level = true
+offset_left = 541.0
+offset_top = 826.0
+offset_right = 551.0
+offset_bottom = 853.0
+scale = Vector2(21.8563, 17.2068)
+text = "5"
+
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(-8.21732, -8.33808)
 scale = Vector2(2.34205, 2.34205)
@@ -686,15 +698,6 @@ texture = ExtResource("5_f3ewc")
 position = Vector2(-8.21732, -6.83808)
 scale = Vector2(0.561996, 0.561996)
 shape = SubResource("RectangleShape2D_k1bd4")
-
-[node name="HealthLabel" type="Label" parent="Player"]
-visible = false
-offset_left = -2220.33
-offset_top = -1158.61
-offset_right = -2180.33
-offset_bottom = -1118.61
-scale = Vector2(30.7931, 25.5807)
-text = "5"
 
 [node name="PlayerCam" type="Camera2D" parent="Player"]
 position = Vector2(-32.937, -114.31)
@@ -726,7 +729,7 @@ sprite_frames = ExtResource("10_g37s4")
 collision_layer = 2
 
 [node name="LaserCol" type="CollisionShape2D" parent="Obstacles/Laser/Laser"]
-position = Vector2(0.590622, 20.1497)
+position = Vector2(-1.74982, 20.1497)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserB" type="AnimatedSprite2D" parent="Obstacles"]
