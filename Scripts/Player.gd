@@ -40,10 +40,10 @@ func _process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if Input.is_action_pressed("ui_left"):
 		$PlayerSprite.flip_h = 1
-		$PlayerCam.rotation_degrees = -10
+		$PlayerCam.rotation_degrees = -20
 	elif Input.is_action_pressed("ui_right"):
 		$PlayerSprite.flip_h = 0
-		$PlayerCam.rotation_degrees = 10
+		$PlayerCam.rotation_degrees = 20
 	else:
 		$PlayerCam.rotation_degrees = 0
 	if Input.is_action_just_pressed("ui_down"):

@@ -664,7 +664,6 @@ autoplay = "no move"
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
 position = Vector2(538.751, 716.265)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_drtfg")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
@@ -695,6 +694,7 @@ ignore_rotation = false
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+rotation_smoothing_speed = 2.5
 
 [node name="HitAnim" type="AnimatedSprite2D" parent="Player/PlayerCam"]
 position = Vector2(0.310028, -3.74039)
