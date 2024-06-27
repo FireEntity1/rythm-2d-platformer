@@ -285,7 +285,6 @@ func _physics_process(delta):
 	
 	
 	
-	
 func laserFire(firebeat):
 	if beat > firebeat + 2:
 		pass

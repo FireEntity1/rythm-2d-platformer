@@ -600,7 +600,7 @@ size = Vector2(16.5896, 71.8527)
 scale = Vector2(0.508741, 0.508741)
 
 [node name="BG" type="AnimatedSprite2D" parent="."]
-position = Vector2(1236.39, 711.561)
+position = Vector2(1216.73, 1204.94)
 scale = Vector2(63.3665, -65.5558)
 sprite_frames = SubResource("SpriteFrames_civoo")
 autoplay = "default"
@@ -628,7 +628,7 @@ frame_progress = 0.38682
 modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(0.55834, -2.37944)
 rotation = 1.57079
-scale = Vector2(0.6157, -1.16118)
+scale = Vector2(0.6157, -1.39253)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
 autoplay = "default"
 frame = 10
@@ -638,7 +638,7 @@ frame_progress = 0.38682
 modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(0.55834, -2.37944)
 rotation = -1.5708
-scale = Vector2(0.6157, -1.16118)
+scale = Vector2(0.6157, -1.39254)
 sprite_frames = SubResource("SpriteFrames_q0nkj")
 autoplay = "default"
 frame = 10
@@ -687,6 +687,15 @@ position = Vector2(-8.21732, -6.83808)
 scale = Vector2(0.561996, 0.561996)
 shape = SubResource("RectangleShape2D_k1bd4")
 
+[node name="HealthLabel" type="Label" parent="Player"]
+visible = false
+offset_left = -2220.33
+offset_top = -1158.61
+offset_right = -2180.33
+offset_bottom = -1118.61
+scale = Vector2(30.7931, 25.5807)
+text = "5"
+
 [node name="PlayerCam" type="Camera2D" parent="Player"]
 position = Vector2(-32.937, -114.31)
 scale = Vector2(6.25846, 2.59118)
@@ -721,9 +730,9 @@ position = Vector2(0.590622, 20.1497)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserB" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(902.227, 1525.33)
+position = Vector2(727.493, 1525.33)
 rotation = 1.5708
-scale = Vector2(7.30173, 35.4143)
+scale = Vector2(7.30173, 46.774)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserB" type="Area2D" parent="Obstacles/LaserB"]
@@ -735,9 +744,9 @@ position = Vector2(-4.57713, -16.7067)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserM" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(931.712, 1214.76)
+position = Vector2(925.473, 1214.76)
 rotation = 1.5708
-scale = Vector2(7.30173, 35.4143)
+scale = Vector2(7.30173, 48.7729)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserM" type="Area2D" parent="Obstacles/LaserM"]
@@ -747,9 +756,9 @@ position = Vector2(-14.8064, -14.9861)
 shape = SubResource("RectangleShape2D_xdedj")
 
 [node name="LaserH" type="AnimatedSprite2D" parent="Obstacles"]
-position = Vector2(919.918, 721.389)
+position = Vector2(807.589, 721.389)
 rotation = 1.5708
-scale = Vector2(7.30173, 35.4143)
+scale = Vector2(7.30173, 48.6266)
 sprite_frames = ExtResource("10_g37s4")
 
 [node name="LaserH" type="Area2D" parent="Obstacles/LaserH"]
