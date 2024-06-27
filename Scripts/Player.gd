@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var health = 5
+@export var health = 8
 var iframes = 100
 var wasDamaged = false
 
@@ -56,6 +56,8 @@ func _process(delta):
 	if self.position.y > 3000:
 		self.position.y = 721
 		self.position.x = 0
+		wasDamaged = true
+		health -= 1
 		
 	if health == 0:
 		get_tree().change_scene_to_file("res://Scenes/gameOver.tscn")
@@ -80,6 +82,7 @@ func _on_obstacles_laser_b():
 func _on_obstacles_laser_h():
 	if isLaserH == true and wasDamaged == false:
 		wasDamaged = true
+		health -= 1
 
 
 func _on_obstacles_laser_l():

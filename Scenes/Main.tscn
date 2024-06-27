@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cos3e41wxorb1"]
+[gd_scene load_steps=101 format=3 uid="uid://cos3e41wxorb1"]
 
 [ext_resource type="Texture2D" uid="uid://dtrn12quy0rrj" path="res://background.png" id="1_mshfx"]
 [ext_resource type="Texture2D" uid="uid://f2seb0rdxcqp" path="res://Sprites/Screen wave.png" id="2_a37pa"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cbedfwitujp4" path="res://Sprites/Player.png" id="5_f3ewc"]
 [ext_resource type="Texture2D" uid="uid://c2vhwlwkf77l5" path="res://Sprites/Platform.png" id="6_f87xl"]
 [ext_resource type="AudioStream" uid="uid://cwe61fm2wo0j5" path="res://Audio/Darkside - Nightcore.mp3" id="7_hd2up"]
+[ext_resource type="FontFile" uid="uid://paswlw6psts4" path="res://Scenes/Silkscreen-Regular.ttf" id="7_mbile"]
 [ext_resource type="Script" path="res://Scripts/Obstacles.gd" id="8_b84m2"]
 [ext_resource type="Texture2D" uid="uid://cts411q2j0alw" path="res://Sprites/hitAnim.png" id="8_hhmhm"]
 [ext_resource type="AudioStream" uid="uid://d2gsh32ufv27d" path="res://Audio/Laser.mp3" id="10_4poid"]
 [ext_resource type="SpriteFrames" uid="uid://db5j28lmbhkr2" path="res://Scenes/Laser.tres" id="10_g37s4"]
+[ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="13_e70xb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hfm1j"]
 atlas = ExtResource("1_mshfx")
@@ -506,6 +508,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drtfg"]
 size = Vector2(212.499, 88.4705)
 
+[sub_resource type="Theme" id="Theme_gceu1"]
+default_font = ExtResource("7_mbile")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1bd4"]
 size = Vector2(126, 127)
 
@@ -601,7 +606,7 @@ scale = Vector2(0.508741, 0.508741)
 
 [node name="BG" type="AnimatedSprite2D" parent="."]
 position = Vector2(1216.73, 1204.94)
-scale = Vector2(63.3665, -65.5558)
+scale = Vector2(75.8117, -77.3068)
 sprite_frames = SubResource("SpriteFrames_civoo")
 autoplay = "default"
 
@@ -682,11 +687,12 @@ follow_viewport_enabled = true
 
 [node name="HealthBar" type="Label" parent="Player/CanvasLayer"]
 top_level = true
-offset_left = 541.0
-offset_top = 826.0
-offset_right = 551.0
-offset_bottom = 853.0
-scale = Vector2(21.8563, 17.2068)
+offset_left = 478.0
+offset_top = 764.0
+offset_right = 490.0
+offset_bottom = 791.0
+scale = Vector2(22.4215, 20.7368)
+theme = SubResource("Theme_gceu1")
 text = "5"
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
@@ -795,6 +801,12 @@ shape = SubResource("RectangleShape2D_ytgsf")
 
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="Obstacles"]
 stream = ExtResource("10_4poid")
+
+[node name="Fade" type="Sprite2D" parent="Obstacles"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1757.28, 923.849)
+scale = Vector2(87.8464, 104.004)
+texture = ExtResource("13_e70xb")
 
 [connection signal="enterLaser" from="Player" to="Obstacles" method="_on_player_enter_laser"]
 [connection signal="exitLaser" from="Player" to="Obstacles" method="_on_player_exit_laser"]

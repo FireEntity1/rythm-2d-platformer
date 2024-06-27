@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://br4ik5ai36o4q"]
+
+[ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_0wphu"]
+[ext_resource type="FontFile" uid="uid://paswlw6psts4" path="res://Scenes/Silkscreen-Regular.ttf" id="2_nalk7"]
+[ext_resource type="Texture2D" uid="uid://cg1yo87gdb2ek" path="res://Sprites/Startbutton2.png" id="3_0y1be"]
+[ext_resource type="Texture2D" uid="uid://b8kolcgy6wp5t" path="res://Sprites/Startbutton3.png" id="4_ew30f"]
+[ext_resource type="Texture2D" uid="uid://de0bsm33txtxg" path="res://Sprites/Startbutton1.png" id="5_yeq83"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="6_o0lxj"]
+[ext_resource type="AudioStream" uid="uid://7sp5xcbdmbas" path="res://Audio/Click.mp3" id="7_o81a3"]
+[ext_resource type="AudioStream" uid="uid://d1wp8ut0c5b5f" path="res://Audio/pass.mp3" id="8_xyvve"]
+
+[sub_resource type="Theme" id="Theme_vlfcs"]
+default_font = ExtResource("2_nalk7")
+
+[node name="Pass" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(976, 558)
+scale = Vector2(13.2, 13.4)
+texture = ExtResource("1_0wphu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 199.0
+offset_top = 63.0
+offset_right = 333.0
+offset_bottom = 86.0
+scale = Vector2(11.3438, 11.3438)
+theme = SubResource("Theme_vlfcs")
+text = "SONG PASSED!"
+
+[node name="Label" type="Label" parent="Label"]
+offset_left = -9.6088
+offset_top = 70.964
+offset_right = 226.391
+offset_bottom = 93.964
+scale = Vector2(0.66736, 0.66736)
+theme = SubResource("Theme_vlfcs")
+text = "Thank you for playing"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 539.0
+offset_top = 380.0
+offset_right = 603.0
+offset_bottom = 412.0
+scale = Vector2(12.9499, 12.1172)
+texture_normal = ExtResource("3_0y1be")
+texture_pressed = ExtResource("4_ew30f")
+texture_hover = ExtResource("5_yeq83")
+stretch_mode = 4
+script = ExtResource("6_o0lxj")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="TextureButton"]
+stream = ExtResource("7_o81a3")
+volume_db = 6.438
+
+[node name="Pass" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xyvve")
+volume_db = 21.791
+autoplay = true
+
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]
+[connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_button_up"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cop0ytlgxsj1w"]
+[gd_scene load_steps=9 format=3 uid="uid://cop0ytlgxsj1w"]
 
 [ext_resource type="Texture2D" uid="uid://cu2jiisuwepe" path="res://Sprites/Background.png" id="1_5opng"]
 [ext_resource type="Texture2D" uid="uid://cg1yo87gdb2ek" path="res://Sprites/Startbutton2.png" id="2_8cra6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://de0bsm33txtxg" path="res://Sprites/Startbutton1.png" id="4_xx0k3"]
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="5_elan8"]
 [ext_resource type="Texture2D" uid="uid://5k1onbxgwf2x" path="res://Sprites/healthLost.png" id="6_ipinj"]
+[ext_resource type="AudioStream" uid="uid://bl123h2jg7sj7" path="res://Audio/GameOver.wav" id="6_uf1kk"]
+[ext_resource type="AudioStream" uid="uid://7sp5xcbdmbas" path="res://Audio/Click.mp3" id="7_xkkcf"]
 
 [node name="GameOver" type="Node2D"]
 
@@ -15,6 +17,11 @@ self_modulate = Color(0, 1, 0.827, 1)
 position = Vector2(959.5, 554)
 scale = Vector2(12.1938, 12.8)
 texture = ExtResource("1_5opng")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uf1kk")
+volume_db = 1.874
+autoplay = true
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = 543.0
@@ -28,9 +35,14 @@ texture_hover = ExtResource("4_xx0k3")
 stretch_mode = 4
 script = ExtResource("5_elan8")
 
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="TextureButton"]
+stream = ExtResource("7_xkkcf")
+volume_db = 6.438
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(959, 212)
 scale = Vector2(12.3554, 8.59827)
 texture = ExtResource("6_ipinj")
 
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]
 [connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_button_up"]

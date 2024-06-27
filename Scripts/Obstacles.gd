@@ -283,6 +283,8 @@ func _physics_process(delta):
 	laserFireB(289.5)
 	laserFireR(289.5)
 	
+	endGame(302)
+	
 	
 	
 func laserFire(firebeat):
@@ -335,3 +337,8 @@ func laserFireH(firebeat):
 		$LaserH.play("default")
 	if beat > firebeat + hitOffset and beat < firebeat + 2.5:
 		laserH.emit()
+func endGame(firebeat):
+	if firebeat < beat:
+		$Fade.modulate.a += 0.005
+		if $Fade.modulate.a > 0.95:
+			get_tree().change_scene_to_file("res://Scenes/pass.tscn")
