@@ -13,6 +13,9 @@ config_version=5
 config/name="2d-platformer"
 run/main_scene="res://Scenes/Title.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://Sprites/icon.svg"
 
 [display]
